@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: rajesh-app
-        image: rajeshbethireddy/rajesh-app:v3
+        image: rajeshbethireddy/rajesh-app:v4
         ports:
         - containerPort: 80
