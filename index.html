@@ -36,7 +36,7 @@
       color: #ffdd57;
     }
     section {
-      padding: 80px 20px;
+      padding: 60px 20px;
       max-width: 900px;
       margin: auto;
     }
@@ -48,7 +48,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       padding: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     footer {
       background: #007acc;
@@ -63,9 +63,28 @@
       padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 10px;
     }
     button:hover {
       background: #005fa3;
+    }
+    #quiz {
+      display: none;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .roadmap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .roadmap-item {
+      background: #e6f2ff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -75,7 +94,10 @@
       <a href="#intro">Introduction</a>
       <a href="#principles">Principles</a>
       <a href="#tools">Tools</a>
+      <a href="#definitions">Definitions</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="#demo">Demo</a>
+      <a href="#quiz">Quiz</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -102,7 +124,6 @@
   <section id="tools">
     <div class="card">
       <h2>Popular DevOps Tools</h2>
-      <p>Some widely used tools include:</p>
       <ul>
         <li>Jenkins (CI/CD)</li>
         <li>Docker (Containers)</li>
@@ -110,6 +131,33 @@
         <li>Terraform (Infrastructure as Code)</li>
         <li>Prometheus & Grafana (Monitoring)</li>
       </ul>
+    </div>
+  </section>
+
+  <section id="definitions">
+    <div class="card">
+      <h2>Key Definitions</h2>
+      <p><strong>Dev:</strong> Refers to software development – writing, testing, and building applications.</p>
+      <p><strong>Ops:</strong> Refers to IT operations – deploying, monitoring, and maintaining systems.</p>
+      <p><strong>CI/CD:</strong> Continuous Integration and Continuous Delivery – automating build, test, and deployment pipelines.</p>
+      <p><strong>Docker:</strong> A platform for containerization, packaging applications with dependencies into portable units.</p>
+      <p><strong>Kubernetes:</strong> An orchestration tool for managing containerized applications at scale.</p>
+      <p><strong>Jenkins:</strong> A widely used automation server for building CI/CD pipelines.</p>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="card">
+      <h2>DevOps Tools Roadmap</h2>
+      <div class="roadmap">
+        <div class="roadmap-item">Version Control → Git</div>
+        <div class="roadmap-item">CI/CD → Jenkins, GitHub Actions</div>
+        <div class="roadmap-item">Containerization → Docker</div>
+        <div class="roadmap-item">Orchestration → Kubernetes</div>
+        <div class="roadmap-item">IaC → Terraform, Ansible</div>
+        <div class="roadmap-item">Monitoring → Prometheus, Grafana</div>
+        <div class="roadmap-item">Cloud → AWS, Azure, GCP</div>
+      </div>
     </div>
   </section>
 
@@ -122,23 +170,110 @@
     </div>
   </section>
 
-  <section id="contact">
-    <div class="card">
-      <h2>Contact</h2>
-      <p>Want to learn more about DevOps? Reach out to your DevOps team or explore open-source communities!</p>
-    </div>
+  <section id="quiz">
+  <div class="card">
+    <h2>DevOps Quiz</h2>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. What does DevOps stand for?</p>
+        <input type="radio" name="q1" value="correct"> Development & Operations<br>
+        <input type="radio" name="q1" value="wrong"> Devices & Options<br>
+        <input type="radio" name="q1" value="wrong"> Design & Optimization<br>
+        <input type="radio" name="q1" value="wrong"> Delivery & Output<br>
+      </div>
+
+      <div class="question">
+        <p>2. Which tool is used for CI/CD?</p>
+        <input type="radio" name="q2" value="correct"> Jenkins<br>
+        <input type="radio" name="q2" value="wrong"> Photoshop<br>
+        <input type="radio" name="q2" value="wrong"> Excel<br>
+        <input type="radio" name="q2" value="wrong"> Word<br>
+      </div>
+
+      <div class="question">
+        <p>3. What is Docker used for?</p>
+        <input type="radio" name="q3" value="correct"> Containerization<br>
+        <input type="radio" name="q3" value="wrong"> Image editing<br>
+        <input type="radio" name="q3" value="wrong"> Database management<br>
+        <input type="radio" name="q3" value="wrong"> Cloud billing<br>
+      </div>
+
+      <div class="question">
+        <p>4. What does IaC stand for?</p>
+        <input type="radio" name="q4" value="correct"> Infrastructure as Code<br>
+        <input type="radio" name="q4" value="wrong"> Internet and Cloud<br>
+        <input type="radio" name="q4" value="wrong"> Internal app config<br>
+        <input type="radio" name="q4" value="wrong"> Integrated access control<br>
+      </div>
+
+      <div class="question">
+        <p>5. Which tool is used for orchestration?</p>
+        <input type="radio" name="q5" value="correct"> Kubernetes<br>
+        <input type="radio" name="q5" value="wrong"> MS Word<br>
+        <input type="radio" name="q5" value="wrong"> Photoshop<br>
+        <input type="radio" name="q5" value="wrong"> Notepad<br>
+      </div>
+
+      <div class="question">
+        <p>6. Which principle emphasizes automation?</p>
+        <input type="radio" name="q6" value="correct"> Automation everywhere<br>
+        <input type="radio" name="q6" value="wrong"> Manual testing<br>
+        <input type="radio" name="q6" value="wrong"> Paper documentation<br>
+        <input type="radio" name="q6" value="wrong"> Manual documentation<br>
+      </div>
+
+      <div class="question">
+        <p>7. Which tools are used for monitoring?</p>
+        <input type="radio" name="q7" value="correct"> Prometheus & Grafana<br>
+        <input type="radio" name="q7" value="wrong"> Excel & Word<br>
+        <input type="radio" name="q7" value="wrong"> Photoshop & Illustrator<br>
+        <input type="radio" name="q7" value="wrong"> Outlook & Teams<br>
+      </div>
+
+      <div class="question">
+        <p>8. What is the main goal of DevOps?</p>
+        <input type="radio" name="q8" value="correct"> Faster delivery & collaboration<br>
+        <input type="radio" name="q8" value="wrong"> Slower releases<br>
+        <input type="radio" name="q8" value="wrong"> Manual deployments<br>
+        <input type="radio" name="q8" value="wrong"> Isolated teams<br>
+      </div>
+    </form>
+
+    <p id="quizResult"></p>
+    <button type="button" onclick="calculateScore()">Submit Quiz</button>
+    <button id="homeBtn" style="display:none;" onclick="goHome()">Go to Home</button>
+  </div>
   </section>
-
-  <footer>
-    <p>© 2026 DevOps Static Web App</p>
-  </footer>
-
   <script>
     function showMessage() {
-      const output = document.getElementById("output");
-      output.textContent = "✅ Pipeline executed successfully! Build → Test → Deploy completed.";
-      output.style.color = "green";
-    }
+  const output = document.getElementById("output");
+  output.textContent = "✅ Pipeline executed successfully! Build → Test → Deploy completed.";
+  output.style.color = "green";
+}
+
+function calculateScore() {
+  let score = 0;
+  const totalQuestions = 8; // adjust if you add/remove questions
+  const answers = document.querySelectorAll('input[type="radio"]:checked');
+
+  answers.forEach(ans => {
+    if (ans.value === "correct") score++;
+  });
+
+  const result = document.getElementById("quizResult");
+  result.textContent = "Your score: " + score + "/" + totalQuestions;
+  result.style.fontWeight = "bold";
+
+  document.getElementById("homeBtn").style.display = "inline-block";
+}
+
+function goHome() {
+  window.location.hash = "#intro";
+}
+
   </script>
-</body>
-</html>
+
+       
+    </body>
+    </html>
+        
