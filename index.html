@@ -245,6 +245,12 @@
   </div>
   </section>
   <script>
+    document.querySelector('a[href="#quiz"]').addEventListener('click', function(e) {
+  e.preventDefault(); // prevent default jump
+  document.getElementById("quiz").style.display = "block";
+  document.getElementById("quiz").scrollIntoView({ behavior: "smooth" });
+});
+
     function showMessage() {
   const output = document.getElementById("output");
   output.textContent = "✅ Pipeline executed successfully! Build → Test → Deploy completed.";
