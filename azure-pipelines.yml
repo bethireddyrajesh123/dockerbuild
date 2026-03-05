@@ -2,24 +2,29 @@ trigger:
 - main
  
 pool:
-vmImage: ubuntu-latest
+  vmImage: ubuntu-latest
  
 steps:
  
-- task: KubectlInstaller@0
-inputs:
-kubectlVersion: 'latest'
+- task: Docker@2
+  displayName: Build and Push Docker Image
+  inputs:
+    containerRegistry: DockerHubConnection
+    repository: rajeshbethireddy/rajesh-app
+    command: buildAndPush
+    Dockerfile: Dockerfile
+    tags: latest
  
 - task: AzureCLI@2
-displayName: Connect to AKS
-inputs:
-azureSubscription: 'Azure-service-connection'
-scriptType: bash
-scriptLocation: inlineScript
-inlineScript: |
-az aks get-credentials --resource-group kubernetestest --name rajesh-aks --overwrite-existing
+  displayName: Connect to AKS
+  inputs:
+    azureSubscription: Azure-service-connection
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az aks get-credentials --resource-group kubernetestest --name rajesh-aks --overwrite-existing
  
 - script: |
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-displayName: Deploy to AKS
+    kubectl apply -f deployment.yaml
+    kubectl apply -f service.yaml
+  displayName: Deploy to AKS
