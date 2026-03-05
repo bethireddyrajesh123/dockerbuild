@@ -29,5 +29,5 @@ steps:
 
 # Deploy new image version to Kubernetes
 - script: |
-    kubectl set image deployment/rajesh-app rajesh-container=rajeshbethireddy/rajesh-app:$(Build.BuildId)
+    kubectl set image deployment/rajesh-app rajesh-app=rajeshbethireddy/rajesh-app:$(Build.BuildId)
   displayName: Update Kubernetes Deployment
