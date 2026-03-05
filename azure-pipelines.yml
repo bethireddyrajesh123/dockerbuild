@@ -1,11 +1,12 @@
 trigger:
 - main
- 
+
 pool:
-  vmImage: ubuntu-latest
- 
+  vmImage: 'ubuntu-latest'
+
 steps:
- 
+
+# Build and push Docker image
 - task: Docker@2
   displayName: Build and Push Docker Image
   inputs:
@@ -13,18 +14,20 @@ steps:
     repository: rajeshbethireddy/rajesh-app
     command: buildAndPush
     Dockerfile: Dockerfile
-    tags: latest
- 
+    tags: |
+      $(Build.BuildId)
+
+# Connect to AKS
 - task: AzureCLI@2
   displayName: Connect to AKS
   inputs:
-    azureSubscription: Aks-service-connection
+    azureSubscription: aks-service-connection
     scriptType: bash
     scriptLocation: inlineScript
     inlineScript: |
       az aks get-credentials --resource-group kubernetestest --name rajesh-aks --overwrite-existing
- 
+
+# Deploy new image version to Kubernetes
 - script: |
-    kubectl apply -f deployment.yaml
-    kubectl apply -f service.yaml
-  displayName: Deploy to AKS
+    kubectl set image deployment/rajesh-deployment rajesh-container=rajeshbethireddy/rajesh-app:$(Build.BuildId)
+  displayName: Update Kubernetes Deployment
